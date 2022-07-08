@@ -26,17 +26,22 @@ flex-direction: column;
   :active {
     color: #0070f3;
     border-color: #0070f3;
+    cursor: pointer;
   }
 `
 
 const Name = styled.div`
   background: #74CB48;
-  font-size: 0.8rem;
+  font-size: 1rem;
   color: #fff;
   width: 100%;
-  padding-left:25%; 
+  padding-left:18%; 
   border-bottom-left-radius: 10px;
   border-bottom-right-radius: 10px;
+`
+const Number = styled.div`
+  color: #74CB48;
+  font-size: 0.9rem;
 `
 
 
@@ -44,9 +49,9 @@ export default function Cards() {
   return (
     <FlexContainer>
       <Card>
-        <div>
+        <Number>
           #001
-        </div>
+        </Number>
         <img src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-vi/x-y/1.png`} />
         <Name>Bulbasaur</Name>
       </Card>
