@@ -6,18 +6,20 @@ const FlexContainer = styled.div`
   align-items: center;
   justify-content: center;
   flex-flow: column wrap;
-  max-width: 800px;
+  max-width: 104px;
   margin-top: 3rem;
 `
 
 const Card = styled.div`
-  padding: 1.5rem;
-  color: inherit;
-  text-decoration: none;
+display: flex;
+justify-content: space-between;
+align-items: center;
+flex-direction: column;
   border: 1px solid black;
   border-radius: 10px;
   transition: color 0.15s ease, border-color 0.15s ease;
-  width: 100%;
+  width: 104px;
+  height: 112px;
 
   &:hover,
   :focus,
@@ -27,22 +29,26 @@ const Card = styled.div`
   }
 `
 
-const StyledA = styled.a`
-  margin: 0 0 1rem 0;
-  font-size: 1.5rem;
+const Name = styled.div`
+  background: #74CB48;
+  font-size: 0.8rem;
+  color: #fff;
+  width: 100%;
+  padding-left:25%; 
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
 `
 
-const StyledLink = ({ href, name }) => (
-  <Link href={href} passHref>
-    <StyledA>{name}</StyledA>
-  </Link>
-)
 
 export default function Cards() {
   return (
     <FlexContainer>
       <Card>
-        <StyledLink href="/about" name="About Page &rarr;" />
+        <div>
+          #001
+        </div>
+        <img src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-vi/x-y/1.png`} />
+        <Name>Bulbasaur</Name>
       </Card>
     </FlexContainer>
   )

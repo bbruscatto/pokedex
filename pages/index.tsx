@@ -7,8 +7,19 @@ import {
   CodeTag,
 } from '../components/sharedstyles'
 import Cards from '../components/cards'
+import { useEffect, useState } from 'react'
 
 export default function Home() {
+  let [pokemons, setPokemons] = useState([])
+
+  useEffect(() => {
+    fetch("https://pokeapi.co/api/v2/pokedex/2")
+      .then(response => response.json())
+      .then(data => setPokemons(data.pokemon_entries))
+  }, [])
+
+  { console.log(pokemons) }
+
   return (
     <Container>
       <Head>
@@ -21,10 +32,13 @@ export default function Home() {
           Welcome to <a href="https://nextjs.org">Next.js!</a>
         </Title>
 
-        <Description>
-          Get started by editing
-          <CodeTag>pages/index.tsx</CodeTag>
-        </Description>
+        {/* {pokemons.map((pokemon) => (
+          <>
+            <li key={pokemon.entry_number}>{pokemon.pokemon_species.name}</li>
+            <img src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-vi/x-y/${pokemon.entry_number}.png`} />
+          </>
+        ))} */}
+
 
         <Cards />
       </Main>
