@@ -15,7 +15,7 @@ display: flex;
 justify-content: space-between;
 align-items: center;
 flex-direction: column;
-  border: 1px solid black;
+  border: 1px solid #74CB48;
   border-radius: 10px;
   transition: color 0.15s ease, border-color 0.15s ease;
   width: 104px;
