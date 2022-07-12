@@ -6,7 +6,7 @@ const FlexContainer = styled.div`
   align-items: center;
   justify-content: center;
   flex-flow: column wrap;
-  max-width: 104px;
+  min-width: 104px;
   margin-top: 3rem;
 `
 
@@ -15,10 +15,11 @@ display: flex;
 justify-content: space-between;
 align-items: center;
 flex-direction: column;
+background-color: #fff;
   border: 1px solid #74CB48;
   border-radius: 10px;
   transition: color 0.15s ease, border-color 0.15s ease;
-  width: 104px;
+  width: 100%;
   height: 112px;
 
   &:hover,
@@ -30,30 +31,41 @@ flex-direction: column;
   }
 `
 
-const Name = styled.div`
+const Title = styled.div`
   background: #74CB48;
-  font-size: 1rem;
-  color: #fff;
   width: 100%;
-  padding-left:18%; 
   border-bottom-left-radius: 10px;
   border-bottom-right-radius: 10px;
+  display: flex;
 `
 const Number = styled.div`
   color: #74CB48;
   font-size: 0.9rem;
+  margin: 0 auto;
+`
+
+const Name = styled.p`
+  font-size: 1rem;
+  color: #fff;
+  margin: 0 auto;
+`
+
+const Image = styled.img`
+ margin: 0 auto;
+ max-width: 4.5rem;
+ max-height: 4.5rem;
 `
 
 
-export default function Cards() {
+export default function Cards(props) {
   return (
     <FlexContainer>
       <Card>
         <Number>
-          #001
+          {props.number}
         </Number>
-        <img src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-vi/x-y/1.png`} />
-        <Name>Bulbasaur</Name>
+        <Image src={props.image} />
+        <Title><Name>{props.name}</Name></Title>
       </Card>
     </FlexContainer>
   )

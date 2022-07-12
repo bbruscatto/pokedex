@@ -8,6 +8,7 @@ import {
 } from '../components/sharedstyles'
 import Cards from '../components/cards'
 import { useEffect, useState } from 'react'
+import Pokedex from '../components/pokedex'
 
 export default function Home() {
   let [pokemons, setPokemons] = useState([])
@@ -18,7 +19,7 @@ export default function Home() {
       .then(data => setPokemons(data.pokemon_entries))
   }, [])
 
-  { console.log(pokemons) }
+  /*   { console.log(pokemons) } */
 
   return (
     <Container>
@@ -28,19 +29,16 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Main>
-        <Title>
-          Welcome to <a href="https://nextjs.org">Next.js!</a>
-        </Title>
-
-        {/* {pokemons.map((pokemon) => (
-          <>
-            <li key={pokemon.entry_number}>{pokemon.pokemon_species.name}</li>
-            <img src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-vi/x-y/${pokemon.entry_number}.png`} />
-          </>
-        ))} */}
 
 
-        <Cards />
+        <Pokedex>
+          {pokemons.map((pokemon) => (
+            <>
+              <Cards key={pokemon.entry_number} name={pokemon.pokemon_species.name} number={pokemon.entry_number} image={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-vi/x-y/${pokemon.entry_number}.png`} />
+
+            </>
+          ))}
+        </Pokedex>
       </Main>
     </Container>
   )
