@@ -1,6 +1,5 @@
 import styled from 'styled-components'
 import pokeball from '../public/Pokeball.png'
-import Grid from '@mui/material/Grid';
 
 const FlexContainer = styled.div`
   display: flex;
@@ -47,6 +46,13 @@ const Pokemons = styled.div`
   justify-content: space-around;
   gap: 0.5rem;
   padding: 0 1rem;
+  flex-wrap: wrap;
+  overflow-y: scroll;
+  scrollbar-width: none;
+  ::-webkit-scrollbar { 
+    width: 0;
+    height: 0;
+}
 `
 
 export default function Pokedex(props) {

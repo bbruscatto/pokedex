@@ -35,6 +35,7 @@ export default function Home() {
           {pokemons.map((pokemon) => (
             <>
               <Cards key={pokemon.entry_number} name={pokemon.pokemon_species.name} number={pokemon.entry_number} image={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-vi/x-y/${pokemon.entry_number}.png`} />
+              {console.log(`https://pokeapi.co/api/v2/pokemon/${pokemon.entry_number}`)}
 
             </>
           ))}

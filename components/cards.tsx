@@ -7,7 +7,7 @@ const FlexContainer = styled.div`
   justify-content: center;
   flex-flow: column wrap;
   min-width: 104px;
-  margin-top: 3rem;
+  margin-top: 0.2rem;
 `
 
 const Card = styled.div`
@@ -48,12 +48,15 @@ const Name = styled.p`
   font-size: 1rem;
   color: #fff;
   margin: 0 auto;
+  ::first-letter {
+    text-transform:capitalize;
+}
 `
 
 const Image = styled.img`
  margin: 0 auto;
- max-width: 4.5rem;
- max-height: 4.5rem;
+ max-width: 4rem;
+ max-height: 4rem;
 `
 
 
