@@ -19,6 +19,7 @@ export default function Home() {
       .then(data => setPokemons(data.pokemon_entries))
   }, [])
 
+
   /*   { console.log(pokemons) } */
 
   return (
