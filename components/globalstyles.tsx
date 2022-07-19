@@ -18,6 +18,11 @@ const GlobalStyle = createGlobalStyle`
   * {
     box-sizing: border-box;
   }
+
+  .grass{
+    background-color: #F4F4F4;
+    color: #F4F4F4;
+  }
 `
 
 export default GlobalStyle

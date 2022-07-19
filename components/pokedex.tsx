@@ -25,6 +25,10 @@ const PokedexTitle = styled.div`
   align-items: center;
   justify-content: flex-start;
 `
+const MadeBy = styled.div`
+  display: flex;
+  margin: 0 auto;
+`
 
 const Image = styled.img`
  width: 32px;
@@ -64,6 +68,7 @@ export default function Pokedex(props) {
           <Title>Pokédex</Title>
         </PokedexTitle>
         <Pokemons>{props.children}</Pokemons>
+        <MadeBy>Made by Brunno Bruscatto</MadeBy>
       </PokedexMain>
     </FlexContainer>
   )
