@@ -2,9 +2,6 @@ import Head from 'next/head'
 import {
   Container,
   Main,
-  Title,
-  Description,
-  CodeTag,
 } from '../components/sharedstyles'
 import Cards from '../components/cards'
 import { useEffect, useState } from 'react'
@@ -16,11 +13,11 @@ export default function Home() {
   async function fetchData() {
     const response = await fetch("https://pokeapi.co/api/v2/pokemon?limit=151")
     const data = await response.json()
-    data.results?.forEach(async pokemon => {
-      const res = await fetch(`${pokemon.url}`)
+    for (let result of data.results) {
+      const res = await fetch(`https://pokeapi.co/api/v2/pokemon/${result.name}`)
       const pokemonAll = await res.json()
       await setPokemons(currentList => [...currentList, pokemonAll])
-    })
+    }
   }
   useEffect(() => { fetchData() }, [])
 
@@ -32,10 +29,8 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Main>
-
-
         <Pokedex>
-          {pokemons.slice(0, 151).map((pokemon) => (
+          {pokemons.map((pokemon) => (
             <Cards
               key={pokemon.id}
               name={pokemon.name}
