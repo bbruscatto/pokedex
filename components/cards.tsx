@@ -16,17 +16,15 @@ justify-content: space-between;
 align-items: center;
 flex-direction: column;
 background-color: #fff;
-  border: 1px solid #74CB48;
-  border-radius: 10px;
-  transition: color 0.15s ease, border-color 0.15s ease;
-  width: 100%;
-  height: 112px;
+border-radius: 10px;
+transition: color 0.15s ease, border-color 0.15s ease;
+width: 100%;
+height: 112px;
 
   &:hover,
   :focus,
   :active {
-    color: #0070f3;
-    border-color: #0070f3;
+    opacity: 0.8;
     cursor: pointer;
   }
 `
@@ -58,17 +56,39 @@ const Image = styled.img`
  max-width: 4rem;
  max-height: 4rem;
 `
-
+const typeColors = (type) => {
+  var colors = {
+    grass: '#74CB48',
+    water: '#6493EB',
+    rock: '#B69E31',
+    ghost: '#70559B',
+    normal: '#AAA67F',
+    fighting: '#C12239',
+    psychic: '#FB5584',
+    ground: '#DEC16B',
+    bug: '#A7B723',
+    ice: '#9AD6DF',
+    fire: '#F57D31',
+    dark: '#75574C',
+    electric: '#F9CF30',
+    dragon: '#7037FF',
+    fairy: '#E69EAC',
+    steel: '#B7B9D0',
+    flying: '#A891EC',
+    poison: '#A43E9E'
+  }
+  return colors[type]
+}
 
 export default function Cards(props) {
   return (
     <FlexContainer>
-      <Card>
-        <Number>
-          {props.number}
+      <Card style={{ border: `1px solid ${typeColors(`${props.type}`)}` }}>
+        <Number style={{ color: typeColors(`${props.type}`) }} >
+          {props.number > 99 ? `#${props.number}` : props.number > 9 ? `#0${props.number}` : `#00${props.number}`}
         </Number>
         <Image src={props.image} />
-        <Title><Name>{props.name}</Name></Title>
+        <Title style={{ background: typeColors(`${props.type}`) }}><Name>{props.name}</Name></Title>
       </Card>
     </FlexContainer>
   )
