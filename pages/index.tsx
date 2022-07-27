@@ -1,11 +1,11 @@
-import Head from 'next/head'
+import Head from 'next/head';
 import {
   Container,
   Main,
-} from '../components/sharedstyles'
-import Cards from '../components/cards'
-import { useEffect, useState } from 'react'
-import Pokedex from '../components/pokedex'
+} from '../components/sharedstyles';
+import Cards from '../components/cards';
+import { useEffect, useState } from 'react';
+import Pokedex from '../components/pokedex';
 
 export default function Home() {
   let [pokemons, setPokemons] = useState([])
@@ -35,8 +35,17 @@ export default function Home() {
               key={pokemon.id}
               name={pokemon.name}
               number={pokemon.id}
+              weight={pokemon.weight}
               type={pokemon.types[0].type.name}
-              image={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-vi/x-y/${pokemon.id}.png`} />
+              hp={pokemon.stats[0].base_stat}
+              atk={pokemon.stats[1].base_stat}
+              dfs={pokemon.stats[2].base_stat}
+              satk={pokemon.stats[3].base_stat}
+              sdfs={pokemon.stats[4].base_stat}
+              spd={pokemon.stats[5].base_stat}
+              image={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-vi/x-y/${pokemon.id}.png`}
+              imagefull={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${pokemon.id}.png`}
+            />
           ))
           }
         </Pokedex>

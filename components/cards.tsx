@@ -1,5 +1,9 @@
+import { useState } from 'react'
 import styled from 'styled-components'
-import Link from 'next/link'
+import Box from '@mui/material/Box';
+import Button from '@mui/material/Button';
+import Typography from '@mui/material/Typography';
+import Modal from '@mui/material/Modal';
 
 const FlexContainer = styled.div`
   display: flex;
@@ -30,14 +34,12 @@ height: 112px;
 `
 
 const Title = styled.div`
-  background: #74CB48;
   width: 100%;
   border-bottom-left-radius: 10px;
   border-bottom-right-radius: 10px;
   display: flex;
 `
 const Number = styled.div`
-  color: #74CB48;
   font-size: 0.9rem;
   margin: 0 auto;
 `
@@ -80,16 +82,56 @@ const typeColors = (type) => {
   return colors[type]
 }
 
+const style = {
+  position: 'absolute',
+  top: '50%',
+  left: '50%',
+  transform: 'translate(-50%, -50%)',
+  width: 400,
+  bgcolor: 'background.paper',
+  border: '2px solid #000',
+  boxShadow: 24,
+  p: 4,
+};
+
 export default function Cards(props) {
+  const [open, setOpen] = useState(false);
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
+
   return (
     <FlexContainer>
-      <Card style={{ border: `1px solid ${typeColors(`${props.type}`)}` }}>
+      <Card onClick={handleOpen} style={{ border: `1px solid ${typeColors(`${props.type}`)}` }}>
         <Number style={{ color: typeColors(`${props.type}`) }} >
           {props.number > 99 ? `#${props.number}` : props.number > 9 ? `#0${props.number}` : `#00${props.number}`}
         </Number>
         <Image src={props.image} />
         <Title style={{ background: typeColors(`${props.type}`) }}><Name>{props.name}</Name></Title>
       </Card>
+
+      <Modal
+        open={open}
+        onClose={handleClose}
+        aria-labelledby="modal-modal-title"
+        aria-describedby="modal-modal-description"
+      >
+        <Box sx={style}>
+          <Typography id="modal-modal-title" variant="h6" component="h2">
+            {props.name}
+          </Typography>
+          <Typography id="modal-modal-description" sx={{ mt: 2 }}>
+            <Image src={props.imagefull} />
+            {props.weight} <br />
+            {props.hp} <br />
+            {props.atk} <br />
+            {props.dfs} <br />
+            {props.satk} <br />
+            {props.sdfs} <br />
+            {props.spd} <br />
+            Duis mollis, est non commodo luctus, nisi erat porttitor ligula.
+          </Typography>
+        </Box>
+      </Modal>
     </FlexContainer>
   )
 }
