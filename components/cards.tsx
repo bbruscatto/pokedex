@@ -39,6 +39,12 @@ const Title = styled.div`
   border-bottom-right-radius: 10px;
   display: flex;
 `
+const ModalTitle = styled.div`
+  width: 100%;
+  align-items: center;
+  display: flex;
+  justify-content: space-around;
+`
 const Number = styled.div`
   font-size: 0.9rem;
   margin: 0 auto;
@@ -52,12 +58,23 @@ const Name = styled.p`
     text-transform:capitalize;
 }
 `
-
+const ModalName = styled.p`
+  font-size: 1rem;
+  ::first-letter {
+    text-transform:capitalize;
+}
+`
 const Image = styled.img`
  margin: 0 auto;
  max-width: 4rem;
  max-height: 4rem;
 `
+const ImageModal = styled.img`
+ margin: 0 auto;
+ max-width: 8rem;
+ max-height: 8rem;
+`
+
 const typeColors = (type) => {
   var colors = {
     grass: '#74CB48',
@@ -87,8 +104,9 @@ const style = {
   top: '50%',
   left: '50%',
   transform: 'translate(-50%, -50%)',
-  width: 400,
+  width: '20rem',
   bgcolor: 'background.paper',
+  borderRadius: '10%',
   border: '2px solid #000',
   boxShadow: 24,
   p: 4,
@@ -116,12 +134,15 @@ export default function Cards(props) {
         aria-describedby="modal-modal-description"
       >
         <Box sx={style}>
-          <Typography id="modal-modal-title" variant="h6" component="h2">
-            {props.name}
-          </Typography>
+          <ModalTitle >
+            <ModalName> {props.name}  </ModalName>
+            {props.number > 99 ? `#${props.number}` : props.number > 9 ? `#0${props.number}` : `#00${props.number}`}
+          </ModalTitle>
+          <ModalTitle>
+            <ImageModal src={props.imagefull} /> </ModalTitle>
           <Typography id="modal-modal-description" sx={{ mt: 2 }}>
-            <Image src={props.imagefull} />
             {props.weight} <br />
+            {props.height} <br />
             {props.hp} <br />
             {props.atk} <br />
             {props.dfs} <br />

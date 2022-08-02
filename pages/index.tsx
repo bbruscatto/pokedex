@@ -36,6 +36,7 @@ export default function Home() {
               name={pokemon.name}
               number={pokemon.id}
               weight={pokemon.weight}
+              height={pokemon.height}
               type={pokemon.types[0].type.name}
               hp={pokemon.stats[0].base_stat}
               atk={pokemon.stats[1].base_stat}
