@@ -49,6 +49,25 @@ const Number = styled.div`
   font-size: 0.9rem;
   margin: 0 auto;
 `
+const SkillBox = styled.div`
+  background: #262626;
+padding: 4px;
+box-sizing: border-box;
+border: 1px solid #fff;
+border-radius : 2px;
+width: 100%;
+`
+const SkillLevel = styled.div`
+  width: 100%;
+  height: 10px;
+  background-color: #1d76db;
+`
+const Skill = styled.div`
+  height: 10px;
+  background-color: #1d76db;
+  display: flex;
+  align-items: center;
+`
 
 const Name = styled.p`
   font-size: 1rem;
@@ -141,15 +160,16 @@ export default function Cards(props) {
           <ModalTitle>
             <ImageModal src={props.imagefull} /> </ModalTitle>
           <Typography id="modal-modal-description" sx={{ mt: 2 }}>
-            {props.weight} <br />
-            {props.height} <br />
-            {props.hp} <br />
-            {props.atk} <br />
-            {props.dfs} <br />
-            {props.satk} <br />
-            {props.sdfs} <br />
-            {props.spd} <br />
-            Duis mollis, est non commodo luctus, nisi erat porttitor ligula.
+            {props.type}<br />
+            {(props.weight * 0.1).toFixed(1)} kg <br />
+            {(props.height * 0.1).toFixed(1)} m <br />
+            Base Stats <br />   {console.log((`${props.hp}%`))}
+            <Skill><div> HP {props.hp}</div> <SkillBox><SkillLevel style={{ width: `${props.hp / 2}%` }} /> </SkillBox> </Skill><br />
+            ATK {props.atk} <SkillBox><SkillLevel style={{ width: `${props.atk / 2}%` }} /> </SkillBox> <br />
+            DEF {props.dfs} <SkillBox><SkillLevel style={{ width: `${props.dfs / 2}%` }} /> </SkillBox> <br />
+            SATK {props.satk} <SkillBox><SkillLevel style={{ width: `${props.satk / 2}%` }} /> </SkillBox> <br />
+            SDEF {props.sdfs} <SkillBox><SkillLevel style={{ width: `${props.sdfs / 2}%` }} /> </SkillBox> <br />
+            SPD {props.spd} <SkillBox><SkillLevel style={{ width: `${props.spd / 2}%` }} /> </SkillBox> <br />
           </Typography>
         </Box>
       </Modal>
