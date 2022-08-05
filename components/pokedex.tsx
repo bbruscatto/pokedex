@@ -1,5 +1,6 @@
 import styled from 'styled-components'
 import pokeball from '../public/Pokeball.png'
+import "@fontsource/poppins";
 
 const FlexContainer = styled.div`
   display: flex;
@@ -28,6 +29,10 @@ const PokedexTitle = styled.div`
 const MadeBy = styled.div`
   display: flex;
   margin: 0 auto;
+  padding: 0.3rem 0;
+  font-family: 'Poppins';
+  font-size: 0.9rem;
+  font-weight: 800;
 `
 
 const Image = styled.img`
