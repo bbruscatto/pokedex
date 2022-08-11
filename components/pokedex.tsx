@@ -25,6 +25,8 @@ const PokedexTitle = styled.div`
   flex-direction: row;
   align-items: center;
   justify-content: flex-start;
+  height: 3rem;
+  margin: 0.5rem 0;
 `
 const MadeBy = styled.div`
   display: flex;
@@ -64,6 +66,26 @@ const Pokemons = styled.div`
 }
 `
 
+const Searchbox = styled.input`
+ font-family: 'Poppins';
+margin: 0 auto;
+margin-bottom: 1rem;  
+line-height: 2rem;
+color: #212121;
+display: flex;
+flex-direction: row;
+align-items: flex-start;
+width: 20.5rem;
+height: 1.5rem;
+background: #FFFFFF;
+border: 1px solid #E0E0E0;
+border-radius: 8px;
+text-align: center;
+::placeholder {
+   text-align: center; 
+}
+`
+
 export default function Pokedex(props) {
   return (
     <FlexContainer>
@@ -72,6 +94,12 @@ export default function Pokedex(props) {
           <Image src={pokeball.src} />
           <Title>Pokédex</Title>
         </PokedexTitle>
+        <Searchbox
+          type="search"
+          placeholder="Search"
+          onChange={props.onChange}
+          value={props.value}
+        />
         <Pokemons>{props.children}</Pokemons>
         <MadeBy>Made by Brunno Bruscatto</MadeBy>
       </PokedexMain>
