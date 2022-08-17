@@ -249,7 +249,7 @@ export default function Cards(props) {
                 {props.type}
               </Type>
               <Attributes>
-                <FaWeight style={{ color: 'gray' }} />  {(props.weight * 0.1).toFixed(1)}kg
+                <FaWeight style={{ color: 'gray' }} />  {(props.weight * 0.1).toFixed(1)} kg
                 <span style={{ margin: '0 1rem' }}>|</span>
                 <GiBodyHeight style={{ color: 'gray' }} /> {(props.height * 0.1).toFixed(1)} m
               </Attributes>

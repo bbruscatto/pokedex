@@ -8,7 +8,8 @@ const FlexContainer = styled.div`
   justify-content: center;
   flex-flow: column wrap;
   min-width: 104px;
-  margin-top: 3rem;
+  margin: 20rem 0;
+  padding: 20rem 0;
 `
 
 const PokedexMain = styled.div`
