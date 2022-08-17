@@ -40,7 +40,7 @@ export default function Home() {
           value={searchInput}
         >
           {pokemons.filter((pokemon) => (
-            pokemon.name.match(searchInput))).
+            pokemon.name.match(searchInput.toLowerCase()))).
             map((pokemon) => (
               <Cards
                 key={pokemon.id}
